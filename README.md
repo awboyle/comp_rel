@@ -20,8 +20,9 @@ The code includes two main functions:
 Both functions expect:
 
 * A **master `DataFrame (df)`** containing:
-  * The true rotation period of each star (`Prot`). This is provided to the user as the output from Boyle et al. 2025
+  * The true rotation period of each star (`Prot`).
   * The TESS-measured rotation period and its associated parameters (e.g., `power`, `Tmag`, `snr`, `status`, etc.)
+  * These are provided in the attached `final_comp_rel_df.csv` which needs to be downloaded with the code.
 * User-specified input period and parameter constraints (e.g., `Lomb-Scargle power`, `TESS magnitude`, `SNR`) to define which portion of the parameter space is being measured.
 
 The repository also includes a command-line tool (e.g., `calc_comp_rel.py`) that allows users to do:
