@@ -68,7 +68,7 @@ In single-star mode, you provide arguments like:
 
 * `--input-period`: The measured rotation period you want to evaluate.
 * `--mode`: The single mode you want (one of match, alias, recovery).
-* Optionally, `--ls`, `--t`, `--snr` and their lower/upper limits, etc.
+* One or more of `--ls`, `--t`, `--snr` and optionally their lower/upper limits
 
 Example:
 ```
@@ -89,7 +89,7 @@ Calculated reliability (match): 0.84
 
 In batch mode, you supply a `--batch-file` to process **multiple stars** at once. The code will:
 
-1. Read each row of your batch CSV (which must have a first column of star names, one column called `input_period`, and at least one column title ls, t, snr, with corresponding value in it.
+1. Read each row of your batch CSV (which must have a first column of star names, one column called `input_period`, and at least one column titled ls, t, snr, with corresponding value in it.
 2. Look for the next two columns if their column names contain “lim” or “limit” (e.g. `ls_lower_limit`, `ls_upper_lim`) and use them as the parameter’s lower/upper limit if present. Otherwise, use defaults.
 3. Calculate all three modes (match, alias, recovery) for each star.
 4. Skip any row that raises an error (e.g., missing input_period), inserting None for that row’s results.
