@@ -69,7 +69,7 @@ def calculate_reliability(
     period_lower_limit = float(period_lower_limit)
     period_upper_limit = float(period_upper_limit)
     
-    assert 0 < input_period < 40, "The input rotation period must be between 0 and 40 days"
+    assert 0.2 < input_period < 20, "The input rotation period must be between 0.2 and 20 days"
     assert any(value is not None for value in [ls, t, snr]), "Please specify a value for at least one of LS, T, SNR"
     assert mode in ['match', 'alias', 'recovery'], "Mode must be one of 'match', 'alias', or 'recovery'"
     
@@ -146,7 +146,7 @@ def calculate_completeness(
     period_lower_limit = float(period_lower_limit)
     period_upper_limit = float(period_upper_limit)
     
-    assert 0 < input_period < 40, "The input rotation period must be between 0 and 40 days"
+    assert 0.2 < input_period < 20, "The input rotation period must be between 0 and 20 days"
     assert any(value is not None for value in [ls, t, snr]), "Please specify a value for at least one of LS, T, SNR"
     assert mode in ['match', 'alias', 'recovery'], "Mode must be one of 'match', 'alias', or 'recovery'"
     
