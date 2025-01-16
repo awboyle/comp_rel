@@ -10,7 +10,7 @@ This repository provides Python code to measure the reliability and completeness
 
 Example:
 
-Let's say you know the true rotation period for 10 stars, but when you measure their rotation periods, you find that you only recover the true rotation period for 8 of them. In this case, your completeness is 80%. Now, let's say that for the two stars for which you did not recover the true rotation period, you didn't expect to be able to recover the true rotation periods (maybe because the star is faint or has too low of a lomb-scargle power). In this case the reliability is 100% --- you recovered the rotation period for every start for which you expected to be able to recover the rotation period.
+Let's say you know the true rotation period for 10 stars, but when you measure their rotation periods, you find that you only recover the true rotation period for 8 of them. In this case, your completeness is 80%. Now, let's say that for the two stars for which you did not recover the true rotation period, you didn't expect to be able to recover the true rotation periods (maybe because the star is faint or has too low of a lomb-scargle power). In this case the reliability is 100% --- you recovered the rotation period for every star for which you expected to be able to recover the rotation period.
 
 The code includes two main functions:
 
@@ -55,6 +55,8 @@ The repository also includes a command-line tool (e.g., `calc_comp_rel.py`) that
 2. **Install dependencies**:
    * Python 3.7+ is recommended.
    * You will also need pandas (and optionally numpy, argparse, etc., if not already installed).
+
+Note that the attached `final_comp_rel_df.csv` file MUST be in the same directory as the `calc_comp_rel.py` file.
 
 ---
 
