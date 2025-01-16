@@ -85,7 +85,7 @@ This will print a single reliability value to the console, e.g.:
 ```
 Calculated reliability (match): 0.84
 ```
-(Meaning 84% of stars in that parameter/period window match their true rotation period.)
+(Meaning 84% of stars in that parameter/period window match their true rotation period.) Note that the limits will be added/subtracted to/from the given parameter value. This means that in the above example, only stars with a Lomb-Scargle power range from 0.25 to 0.35 will be considered.
 
 ### Batch Mode
 
@@ -147,8 +147,6 @@ for more details.
 * `completeness_alias`: Among all the stars in that window, how many were measured as “alias”?
 * `completeness_recovery`: Among all the stars in that window, how many were measured as either “match” or “alias” (i.e., not “not_recovered”).
 
-(Strictly speaking, you can interpret completeness as “the fraction of stars in a given parameter space for which TESS returns a valid period [match or alias].”)
-
 ## Example Data Format
 
 Your batch CSV (`my_stars.csv`) might look like:
@@ -169,6 +167,7 @@ StarC,25.0,0.31,0.1,0.1,,
 1. **Assertion Checks**: The functions `calculate_reliability` and `calculate_completeness` enforce certain assertions (e.g., `ls` must be between 0 and 1, `snr` > 0, `input_period` > 0). Rows in your batch file that fail these checks will be skipped, and None is inserted for those rows.
 2. **Skipping Errors**: In batch mode, any row that raises an error does not stop the entire script. It logs a warning to the console and moves on to the next row.
 3. **Customization**: You can customize the code to point to your own DataFrame columns (e.g. renaming `power` to `lombscargle_power`) and adjust the logic for reliability/completeness as needed.
+4. If there are less than three reference stars in a given parameter bin, the code will return None for that calculation.
 
 
 
